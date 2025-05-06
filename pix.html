@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1024, height=1366, initial-scale=1.0" />
+  <link rel="stylesheet" href="pix-style.css" />
+  <title>Pagamento via Pix</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Pagamento via Pix</h1>
+    <p>Escaneie o QR Code abaixo ou copie a chave Pix para realizar o pagamento:</p>
+
+    <img
+      src="https://api.qrserver.com/v1/create-qr-code/?data=00020126580014br.gov.bcb.pix0136SEUEMAIL@EXEMPLO.COM0217Pagamento ReCart5204000053039865405100.005802BR5912ReCart Loja6009Sao Paulo62070503***6304B14F&size=250x250"
+      alt="QR Code Pix" class="qrcode" />
+
+    <div class="chave-pix">
+      <strong>Chave Pix:</strong>
+      <p id="chave">MercadinhoFodido@pix.com</p>
+      <button onclick="copiarChave()">Copiar Chave</button>
+    </div>
+
+    <p class="footer">Após o pagamento, seu acesso será liberado automaticamente.</p>
+  </div>
+
+  <script>
+    function copiarChave() {
+      const chave = document.getElementById("chave").textContent;
+      navigator.clipboard.writeText(chave).then(() => {
+        alert("Chave Pix copiada!");
+      });
+    }
+  </script>
+</body>
+
+</html>
